@@ -1,0 +1,75 @@
+Simulation 3:
+Simulate the transmission of PING message over a network topology consisting of 4 nodes
+and find the number of packets dropped due to congestion.
+
+Step 1: Create a new Project.
+Step 2: Create the network:
+ Select four Ethernet work stations from Ethernet too in object palette.
+ Select an Ethernet16 hub from Ethernet tools in obje palette.
+ Connect the components using 10Base_T links.
+ Select the IP attribute definition from Ethernet tools object palette.
+ Select IP_ping_traffic object palette. pics trotic from internet tools in
+Step 3: Configuring the IP Attribute Definition object.
+ Right Click on IP Attribute Definition object in work space
+ Select Edit Attribute=>IP Ping Parameters.
+ Set parameters as shown below.
+o Intervel(sec)=1.0
+o Time Out=0.1
+Please Note: It is 10Base T Connection between the nodes and the hub in a Star Topology. It is a
+PING Model between the nodes. You need to connect to and from the node to simulate a bi-
+directional ping as is required in this question.
+Step 4: Configuring IP Ping Links:
+ Right Click on any one IP ping link and select similar Demands.
+ Select any one Ping link and Edit its attributes as below:
+o Interrepetition time=Constant(1)
+o Max Repetition count = unlimited
+o Start Time= Constant(1)
+Step 5: Choose Individual Statistics:
+o Right click on the work space and choose individual statistics.
+o Node Statistics => IP => (Ping Replies, Ping Request Sent, Ping Response Time, Traffic
+Dropped)
+Step 6: Duplicate the scenario
+In this scenario remove any link between the hub and workstation.
+Step 7.Run the Simulation:
+ Click on Run Button
+ Set Duration to 100 seconds.
+ Click on Run.
+Step 8: View and Compare the results
+Result Interpretation:
+When node 12 is disconnected both the ping packets are dropped. This is shown in justified by the
+graph. We see similar results for node 11 and node 9 which must drop 1 packet. However there
+should be no change for node 10. Packet generation rate is 1 ping packet per destination per second.
+Simulation 4: Simulate an Ethernet LAN using N nodes (6-10). Change the data rate and
+compare throughput and bit error rate.
+Step 1: Create a New Project
+Step 2: Create the network
+Select topology=>rapid configuration. From the drop down menu choose star and click Ok.
+In the rapid configuration dialog: star box, set the following values:
+Central node model = ethernet16_hub, Periphery node model = Ethernet_station,
+Link model = 10baseT.
+Step 3: Configuring Ethernet Stations:
+Right click on any Ethernet station => Select similar nodes Edit Attributes
+Set Traffic generation parameters and Packet Generation Arguments.
+Start Time=Constant(0)
+ON State Time=Constant(100)
+OFF State Time=Constant(0)
+Interarrival Time=Constant(1.0)
+Check Apply changes to selected objects.
+Click Ok.
+Step 4: Choose Statistics
+Right Click on work space => Choose Individual Statistics In Link Statistics => low level
+point-to-point=> bit error per packet
+=> point-to-point =>throughput[packets/sec] -> & <-
+Click OK
+Step 5: Run Simulation
+Click on Run Button
+Set Duration to 70 seconds
+Click Run
+Step 5: View & Compare results:
+Change the data rate by changing the inter arrival time
+Scenario 1: inter arrival time is constant 1
+Scenario 2: inter arrival time is constant 0.1
+Result Interpretation: The data rate is changed by changing the Inter Arrival Rate.
+First Scenario Constant 1 implies the interarrival rate is less than Constant 0.1, Second
+Scenario. When Interarrival time increases, data rate increases implying that the throughput
+is increased as long as there is no collision.

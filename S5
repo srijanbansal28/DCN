@@ -1,0 +1,57 @@
+Simulation 5: Simulate an Ethernet LAN using N nodes and set multiple traffic nodes and plot
+the congestion window for different source/destination.
+Step 1: Create a New Project
+Step 2: Create the Network
+Select Object Palette box.
+Select internet_toolbox from drop down menu. Choose ethernet_wkstn objects (3 numbers).
+Choose ehternet_server object (1 number). Ethernet16hub (1) from Ethernet tool box
+Choose Application Config, and Profile Config objects.
+Choose 10baseT link and connect the nodes.
+Close the Object Palette box.
+Step 3: Configure the Network Application
+Select Application config object.
+Right click and select Edit Attributes.
+Select Application Definitions => set row = 2.
+In row go to row0 => set Name = ftp. Select description => set ftp = > High Load.
+In row go to row1 => set Name = volce. Select description => set voice = > GSM Quality
+Speech.
+Check Apply Changes to Selected Objects.
+Step 4: Configure the Profile
+Select Profile config node.
+Right click and select Edit Attributes.
+Select Profile Configuration. Set row = 2.
+In rowo, set Profile Name = ftp profile. Select Applications. Set row=1.Go to rowo set Name
+= ftp, Start Time Offset to constant(1), in Repeatability, Inter Repetition Time to exponential (0.1)
+and Number of Repetition to unlimited and Repetition Pattern to concurrent.
+At rowo set Name = ftp, Start Time Offset to constant(1), in Repeatability, Inter Repetition
+Time to exponential(0.1) and Number of Repetition to unlimited and Repetition Pattern to
+concurrent.
+In row1, set Profile Name = voice profile. Select Applications. Set row=1.Go to row1 set
+Name = voice, Start Time Offset to constant(1), in Repeatability, Inter Repetition Time to
+exponential (0.1) and Number of Repetition to unlimited and Repetition Pattern to concurrent.
+At row1 set Name = video, Start Time Offset to constant(1), in Repeatability, Inter
+Repetition Time to exponential (0.1) and Number of Repetition to unlimited and Repetition Pattern
+to concurrent.
+Check Apply Changes to Selected Objects.
+Step 5: Configure Network Objects
+Select any Ethernet_wskt.
+Right click and Select Similar Nodes.
+Right click and select Edit Attributes.
+Select Application Support Profiles => set rows to 2.
+In rows => go to rowo => set Profile Name = ftp profile
+In rows => go to row1 => set Profile Name = voice profile.
+Select Application Support Services. Select edit => set rows 1. Set Name = voice for that
+row.
+Check Apply Changes to Selected Objects.
+Click Ok.
+Select ethernet_server object.
+Right click and select Edit Attributes.
+Select Application Support Services. Select edit => se rows 1. Set Name = ftp for that row.
+Check Apply Changes to Selected Objects.
+Click Ok.
+Step 6: Selecting Statistics for viewing:
+In Node Statistics => select TCP Connection => select Congestion Window Size (bytes)
+Step 7: Run the simulation
+Click run simulation icon from the toolbar.
+Set the Duration to 20 seconds.
+Click Run.

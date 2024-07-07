@@ -1,0 +1,34 @@
+Simulation 6: Simulate simple BSS and with transmitting nodes in wireless LAN by simulation
+and determine the performance with respect to transmission of packets.
+Step 1: Create a New Project
+Step 2: Create the Network
+Select Object Palette box.
+Select wireless_lan_adv from drop down menu.
+Choose wlan_station_sdv(fix) 4 numbers
+Step 3: Configure the Network Application (Select Topology icon ->open Annotation Palette
+>(choose circle) and annotation.) include all 4 nodes in a circle
+Select any wlan_station_adv object in the workspace.
+Right click on the selected object and Select Similar Nodes.
+Right click and select Edit Attributes.
+Select Traffic Generation Parameters => set Start Time to constant (> set ON State to
+constant (100) => set OFF State to constant (0).
+Please Note: If the field to set Start Time to constant(1) is disabled for some reason, please
+change the value from 'Never' to 'Not Used'
+Select Packet Generation Arguments =>set Interarrival Time to exponential(1).
+Check Apply Changes to Selected Objects.
+Click Ok.
+Step 4: Selecting Statistics for viewing:
+Right click on the workspace and select Choose Individual Statistics.
+In Node Statistics => select Wireless LAN => select Data Traffic Rcvd (packets/sec) and
+select Data Traffic send (packets/sec).
+Step 5: Run the simulation
+Click run simulation icon from the toolbar.
+Set the Duration to 100 seconds.
+Click Run.
+Step 6: View Results
+Right click on the work space and select View Results
+Change As Is to Sample_Sum.
+Result Interpretation: We see that on an average 1 packet is sent per second and around 2.5
+packets are received per second. This is because the transmissions of the other 3 stations are also
+being received by this station. There are some losses as well which can be seen by including global
+statistics (bit/sec).

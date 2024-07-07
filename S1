@@ -1,0 +1,70 @@
+Simulation 1:
+Simulate three node point-to-point networks with duplex links between them. Set the queue
+size and vary the bandwidth and find the number of packets dropped.
+
+Solution:
+Step 1: Create a New Project
+Step 2: Create the Network
+ Select the Object Palette box.
+ Select Client-server from the drop-down menu.
+ Choose eth4_slip4_multihomed_client objects (3 numbers).
+ Choose Application Config and Profile Config objects.
+ Choose the 10baseT link and connect the client nodes.
+ Close the Object Palette box.
+Step 3: Configure the Application Config
+ Select the Application config object.
+ Right-click and select Edit Attributes.
+ Select Application Definitions => set row = 1.
+ In row go to row0 => set Name = video. Select description => set Video Conferencing =
+High Resolution Video.
+ Check Apply Changes to Selected Objects.
+ Click Ok.
+Step 4: Configure the Profile config
+ Select Profile config object.
+ Right-click and select Edit Attributes.
+ Select Profile Configuration. Set row = 1,
+ In row0, set Profile Name = video profile.
+ Select Applications. Set row=1.Go to row0 set Name = video, Start Time Offset to
+constant(1), in Repeatability, Inter Repetition Time to constant(1) and Number of
+Repetition to unlimited and Repetition Pattern to concurrent.
+ In Repeatability, Inter Repetition Time to constant (1) and Number of Repetition to
+exponential (0.1) and
+ Repetition Pattern to Concurrent.
+ Check Apply Changes to Selected Objects.
+ Click Ok.
+Step 5: Configure Node Objects
+ Select any eth4_slip4_multihomed_client.
+ Right click and Select Similar Nodes.
+ Right click and select Edit Attributes.
+ Select Application Support Profiles => set rows to 1.
+ In rows => go to row0 => set Profile Name = video profile.
+ Select Application Support Services. Select edit => set rows =1. Set Name = video for that
+row.
+ Select IP Processing Information => set Memory Size to 8MB => set Datagram
+Forwarding Rate to 5000.
+ Check Apply Changes to Selected Objects.
+ Click Ok.
+Step 6: Selecting Statistics for viewing results
+ Right click on the work space and select choose individual DES statistics => in Global
+Statistics go to IP,
+select traffic dropped.
+ In Node Statistics => select IP =>Traffic Dropped (Packets/Sec), Traffic Received
+(Packets/Sec) and
+Traffic Sent (Packets/Sec).
+ Click Ok.
+Step 7: Run the simulation
+ Click run simulation icon from the toolbar.
+ Set the Duration to 120 seconds.
+ Click Run.
+Step 8: View Results
+ Right click on the work space and select View Results.
+ Select the statistics from the View Results.
+ Select Sample Sum instead of As Is.
+ Click Show button to view the graphs.
+To Vary Bandwidth and Queue Size:
+1. Select Duplicate Scenario from the Scenario menu. Name the scenario.
+2. You can vary the queue size and bandwidth by changing the values of Memory size and
+Datagram Forwarding
+Rate as in Step 5 of the procedure above. Change it to 16 Mb and 10000 respectively.
+3. Run the Simulation. You can compare the results by clicking on Compare Results from the
+Results menu. Ideally the number of packets dropped must be less .

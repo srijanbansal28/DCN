@@ -1,0 +1,62 @@
+Simulation 2:
+Using OPNET Simulate a four node point-to-point network, and connect the links as follows:
+n0-n2, n1-n2 and n2-n3. Apply TCP agent between n0-n3 and UDP agent between n1-n3.
+Apply relevant applications over TCP and UDP agents by changing the parameters and
+determine the number of packets sent by TCP/UDP.
+Step 1: Create a New Project
+Step 2: Creating network topology:
+ Select eth4_slip4_multihomed_client (4 numbers) from the client_server tool in Object
+Palette.
+ elect an ethernet_server.
+ Select ethernet from Object Palette.
+ Connect them using the 10BaseT links.
+ Select Application Config and Profile config objects.
+Step 3: Configuring network application Right click on the Application definition object.
+ Select Edit Attributes.
+ Select 2 rows for applications
+ Select the FTP application for TCP traffic and set the traffic to High Load.
+ Select the video conferencing application for UDP traffic and set the traffic to High-
+Resolution Video.
+ Check Apply Changes to Selected Objects and click Ok.
+Step 4: Configure profile
+ Right click on Profile Definition object and select Edit Attributes.
+ TCP profile: Assign the values for the various fields as
+ In row0.set Profile Name = tcp
+ Select Applications. Set row=1.Go to row0 set Name = video, Start Time Offset to
+constant(1), in Repeatability, Inter Repetition Time to constant(1) and Number of
+Repetition to unlimited and Repetition Pattern to concurrent.
+ In Repeatability, Inter Repetition Time to constant (1) and Number of Repetition to
+exponential (0.1) and
+ Repetition Pattern to Concurrent.
+ Repeat the same setting for row1 set Profile Name = udp
+ Click on Apply Changes to Selected Objects and click on OK.
+Step 5: Configure the network objects
+ Right click on the appropriate object i.e. client node or ethernet server.
+ Select Edit Attributes.
+ Click on Application Supported Profiles and choose edit.
+ Apply both the profiles to the client nodes.
+ Click Ok.
+ Click on Application Supported Services and choose edit.
+ Apply the FTP application in case of Ethernet server object and for client nodes select the
+Video application.
+ This is to simulate FTP-TCP-IP for Server and Video-UDP-IP for client nodes.
+ Click Ok.
+ Check Apply Changes to Selected Objects and click on Ok.
+Step 6: Choose statistics:
+ Right click on the workspace and Select Choose Individual Statistics from Node Statistics as
+Traffic Received and Traffic sent.
+Step 7: Run the simulation
+ Click run simulation icon from the toolbar.
+ Set the Duration to 120 seconds.
+ Click Run.
+Step 8: View Results
+ Right click on the work space and select View Results.
+ Select the statistics from the View Results.
+ Select Sample Sum instead of As Is.
+ Click Show button to view the graphs.
+Interpretation:
+Notice the difference in scale in the Y-Axis. For TCP the range is in 1000s and in UDP in 10000s.
+This means the amount of data sent and received in UDP is much higher than that in UDP, which
+implies a higher data rate and therefore a higher data loss.
+These graphs show that for UDP the loss rate is high especially since this is a video conferencing
+application with high data rate. However, for TCP, since congestion control is applied the loss rate

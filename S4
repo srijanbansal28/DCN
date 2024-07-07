@@ -1,0 +1,34 @@
+Simulation 4: Simulate an Ethernet LAN using N nodes (6-10). Change the data rate and
+compare throughput and bit error rate.
+Step 1: Create a New Project
+Step 2: Create the network
+Select topology=>rapid configuration. From the drop down menu choose star and click Ok.
+In the rapid configuration dialog: star box, set the following values:
+Central node model = ethernet16_hub, Periphery node model = Ethernet_station,
+Link model = 10baseT.
+Step 3: Configuring Ethernet Stations:
+Right click on any Ethernet station => Select similar nodes Edit Attributes
+Set Traffic generation parameters and Packet Generation Arguments.
+Start Time=Constant(0)
+ON State Time=Constant(100)
+OFF State Time=Constant(0)
+Interarrival Time=Constant(1.0)
+Check Apply changes to selected objects.
+Click Ok.
+Step 4: Choose Statistics
+Right Click on work space => Choose Individual Statistics In Link Statistics => low level
+point-to-point=> bit error per packet
+=> point-to-point =>throughput[packets/sec] -> & <-
+Click OK
+Step 5: Run Simulation
+Click on Run Button
+Set Duration to 70 seconds
+Click Run
+Step 5: View & Compare results:
+Change the data rate by changing the inter arrival time
+Scenario 1: inter arrival time is constant 1
+Scenario 2: inter arrival time is constant 0.1
+Result Interpretation: The data rate is changed by changing the Inter Arrival Rate.
+First Scenario Constant 1 implies the interarrival rate is less than Constant 0.1, Second
+Scenario. When Interarrival time increases, data rate increases implying that the throughput
+is increased as long as there is no collision.
